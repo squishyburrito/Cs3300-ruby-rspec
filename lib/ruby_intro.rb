@@ -27,7 +27,7 @@ end
 
 #method to check if the string starts with a consonent
 def starts_with_consonant? s
-  s.start_with?(/^[b, c, d, f, g, h, j, k, l, m, n, p, q, r, s, t, v, w, x, y, z]/i)
+  s.start_with?(/^[b-df-hj-np-tv-z]/i)
 end
 
 def binary_multiple_of_4? s

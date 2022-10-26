@@ -16,26 +16,39 @@ describe 'Ruby intro part 2' do
     end
   end
   
+  #use describe to define a collection of 5 tests
   describe '#starts_with_consonant?' do
+    #test 1: 
     it 'should be defined' do
+      #tests the parameter 'd' to not raise an error 
       expect { starts_with_consonant?('d') }.not_to raise_error#::NoMethodError)
     end
+    #test 2:
     it 'classifies true cases [1 point]' , points: 1 do
+      #tests the parameter eval to be not nil and not false
       expect(starts_with_consonant?('v')).to be_truthy, "'v' is a consonant"
       %w[v vest Veeee crypt].each do |string|
+        #output if there is an error
         expect(starts_with_consonant?(string)).to be_truthy, "Incorrect results for input: \"#{string}\""
       end
     end
+    #test 3:
     it 'classifies false cases [1 point]' , points: 1 do
+      #checks for vowels eval to be nil or false
       expect(starts_with_consonant?('a')).to be_falsy, "'a' is not a consonant"
       %w[asdfgh Unix].each do |string|
+        #output if there is an error
         expect(starts_with_consonant?(string)).to be_falsy, "Incorrect results for input: \"#{string}\""
       end
     end
+    #test 4:
     it 'works on the empty string [0.5 points]' , points: 0.5 do
+      #check for an empty string, eval is nil or false
       expect(starts_with_consonant?('')).to be_falsy
     end
+    #test 5:
     it 'works on nonletters [0.5 points]' , points: 0.5 do
+      #checks for characters, eval is nil or false
       expect(starts_with_consonant?('#foo')).to be_falsy
     end
   end
