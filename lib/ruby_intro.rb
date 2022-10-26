@@ -11,7 +11,8 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  false if arr.empty? && n.zero?
+  false if arr.empty?
+  false if n.zero?
   arr.combination(2).any? {|x, y| x + y == n } 
 end
 
@@ -22,8 +23,15 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  true if s[0].match(/[{a-z}]/ && /[^aeiouAEIOU]/)
-  true if s.empty?
+  #false if s.empty? 
+  #true if s.start_with(/([^{a-z}]/)
+  
+  #true if s[0].match(/[^{a-z}]/ || /^[{A-Z}]/)
+  s.start_with?(/[a-z][A-Z]/ && /[^aeiouAEIOU]/ && /^s.empty?/ && /'/)
+  #s[0].match(/[a-z]/ && /[^aeiouAEIOU]/ && /^s.empty?/ )
+  #false if s.start_with?([^a-z])
+  #s[0].match(/[{a-z}]/ && /[^aeiouAEIOU]/)
+  
 end
 
 def binary_multiple_of_4? s
@@ -33,5 +41,12 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  attr_accessor :isbn, :price
+  
+  def initialize(isbn, price)
+    @isbn = isbn
+    @price = price
+  end
+
+ 
 end
