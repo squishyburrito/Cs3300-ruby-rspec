@@ -11,8 +11,11 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
+  #check if array is empty
   false if arr.empty?
+  #check if n is zero
   false if n.zero?
+  #check if combination of any to values in array equal to n
   arr.combination(2).any? {|x, y| x + y == n } 
 end
 
@@ -22,16 +25,9 @@ def hello(name)
   return "Hello, #{name}"
 end
 
+#method to check if the string starts with a consonent
 def starts_with_consonant? s
-  #false if s.empty? 
-  #true if s.start_with(/([^{a-z}]/)
-  
-  #true if s[0].match(/[^{a-z}]/ || /^[{A-Z}]/)
-  s.start_with?(/[a-z][A-Z]/ && /[^aeiouAEIOU]/ && /^s.empty?/ && /'/)
-  #s[0].match(/[a-z]/ && /[^aeiouAEIOU]/ && /^s.empty?/ )
-  #false if s.start_with?([^a-z])
-  #s[0].match(/[{a-z}]/ && /[^aeiouAEIOU]/)
-  
+  s.start_with?(/^[b, c, d, f, g, h, j, k, l, m, n, p, q, r, s, t, v, w, x, y, z]/i)
 end
 
 def binary_multiple_of_4? s
@@ -41,14 +37,19 @@ end
 # Part 3
 
 class BookInStock
+  
+  #getters and #setters
   attr_accessor :isbn, :price
   
+  #initialize
+  #raise Argument error if the string is empty or less than or equal to 0
   def initialize(isbn, price)
     raise ArgumentError, isbn.empty? or price <=0
     @isbn = isbn
     @price = price
   end
 
+  #method to format the price with a dollar sign and 2 decimal places
   def price_as_string(price)
     puts "/$%0.2f {#price}"
   end  
