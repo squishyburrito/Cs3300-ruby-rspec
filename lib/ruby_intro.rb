@@ -44,9 +44,13 @@ class BookInStock
   attr_accessor :isbn, :price
   
   def initialize(isbn, price)
+    raise ArgumentError, isbn.empty? or price <=0
     @isbn = isbn
     @price = price
   end
 
- 
+  def price_as_string(price)
+    puts "/$%0.2f {#price}"
+  end  
+
 end
