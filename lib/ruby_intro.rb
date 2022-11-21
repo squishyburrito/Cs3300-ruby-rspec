@@ -31,7 +31,8 @@ def starts_with_consonant? s
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  return true if s == "0"
+	/^[10]*00$/.match(s) != nil
 end
 
 # Part 3
@@ -44,14 +45,16 @@ class BookInStock
   #initialize
   #raise Argument error if the string is empty or less than or equal to 0
   def initialize(isbn, price)
-    raise ArgumentError, isbn.empty? or price <=0
+    if isbn.empty? || price <= 0
+      raise ArgumentError, isbn.empty? or price <=0
+    end
     @isbn = isbn
     @price = price
   end
 
   #method to format the price with a dollar sign and 2 decimal places
-  def price_as_string(price)
-    puts "/$%0.2f {#price}"
+  def price_as_string
+    return '$' + "%.2f" % @price
   end  
 
 end
